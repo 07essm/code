@@ -1,0 +1,25 @@
+/*given an integer x, return true if x is palindrome integer*/
+
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        int temp = x;
+     int first = x % 10;// first = 1
+        x = x / 10;// x = 12
+        int sec  = x % 10;// sec = 2
+         x = x / 10; // x= 1
+        int thrd = x % 10; //third = 1
+    String str =Integer.toString(first) + Integer.toString(sec) +  Integer.toString(thrd);
+     int  strr=   Integer.parseInt(str);
+                System.out.println(strr);
+                System.out.println(x);
+
+        if((strr - temp) == 0)
+        {
+            return true ;
+        }
+        else 
+            return false;
+        
+    }
+}
