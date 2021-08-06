@@ -1,0 +1,21 @@
+/*given an integer x, return true if x is palindrome integer*/
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        int temp = x;// store orignal #
+        String str = Integer.toString(0); // initlize string with integer 
+
+        while (x != 0) {
+            int pop = x % 10; // isolate the last digit 
+            int push = x / 10; // get remaining numbers 
+            x = push; 
+            str = str + Integer.toString(pop); // combine the digits to obtain reveresed number
+        }
+        
+        int strr = Integer.parseInt(str);// convert to integer format to remove the leading zero 
+        if ((strr - temp) == 0) {
+            return true;
+        } else
+            return false;
+    }
+}
