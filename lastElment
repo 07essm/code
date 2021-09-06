@@ -1,0 +1,6 @@
+public static int lastElm(int[] arr) {
+ 
+ int n = arr.length -1;
+ return arr[n];
+  
+}
