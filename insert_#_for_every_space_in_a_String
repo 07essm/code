@@ -1,0 +1,28 @@
+public class Main
+{
+    public static void main(String[] args) {
+        
+        String str = "Inges";
+        boolean space = false;
+         String s2 =" ";
+        
+        for(int i=0; i<str.length();++i){
+            if(str.charAt(i)== ' ' ){
+                space = true;
+            }
+        }
+        if(space == true)
+        {
+             s2 = (str.replace(' ', '#'));
+        
+        }
+        else 
+        s2 = str;
+        
+    
+        System.out.println(s2);
+        
+  
+      
+    }
+}
