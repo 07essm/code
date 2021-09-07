@@ -1,5 +1,7 @@
-public static int mostFrequentElement(int[] a) {
-  int count = 1, tempCount;
+
+  // write your code here
+  public static int mostFrequentElement(int[] a) {
+  int count = 0, tempCount;
   int popular = a[0];
   int temp = 0;
   
@@ -7,10 +9,11 @@ public static int mostFrequentElement(int[] a) {
   {
     temp = a[i];
     tempCount = 0;
-    for (int j = 1; j < a.length; j++)
+    for (int j = 0; j < a.length; j++)
     {
       if (temp == a[j])
         tempCount++;
+        //++j
     }
     if (tempCount > count)
     {
@@ -21,3 +24,4 @@ public static int mostFrequentElement(int[] a) {
   return popular;
   
 }
+  
