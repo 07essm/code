@@ -1,0 +1,43 @@
+import java.util.Arrays;
+import java.util.Collections;
+
+
+public class Main
+{
+     public static int[] sortArray(int[]array, String type)
+{
+         Integer[] boxedArray = new Integer[array.length];
+        for (int i = 0; i < array.length; i++) {
+            boxedArray[i] = Integer.valueOf(array[i]);
+        } 
+        
+        if(type == "S")
+        {
+            Arrays.sort(array);
+        }
+        else if(type == "B")
+        {
+             Arrays.sort(boxedArray, Collections.reverseOrder());
+             for (int j = 0; j < array.length; j++) {
+                  array[j]=boxedArray[j];
+        } 
+        
+        }
+        return array;
+}
+    
+ public static void main (String[]args)
+  {
+      int[]array ={99 , 314 , 8 , 200 , 23};
+      
+      String type = "B";
+ 
+    sortArray(array,type);
+     System.out.println(Arrays.toString(array));
+    
+   
+  }
+
+
+  
+}
