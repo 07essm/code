@@ -1,0 +1,102 @@
+//Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. 
+//Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+class Result {
+
+
+    public static void miniMaxSum(List<Integer> arr) {
+      ArrayList<Integer> MinArr= new ArrayList<>();
+      ArrayList<Integer> MaxArr= new ArrayList<>();
+      List<Integer> arr2 = new ArrayList<>();     
+      
+      for(int b =0; b<5;b++){ //make a copy for the array 
+          int getit =arr.get(b);
+          arr2.add(getit);
+      }
+      int OrgSize = (arr.size());//save rignal size to use it later
+      int min =0;
+      int index =0;
+      int i =0;
+      int j=0;
+      long MinSum =0;
+      
+      int max =0;
+      int index2 =0;
+      int n =0;
+      int m=0;
+      long MaxSum =0;      
+
+      
+
+      while(n<((arr2.size())-1)){//fint the max 4 numbers and store it in array
+          max = arr2.get(n);
+          index2 =0;
+          for(m=1; m<arr2.size(); m++){
+              if(arr2.get(m) > max){
+                   max = arr2.get(m) ;
+                   index2 = m;
+              }
+          }
+         MaxArr.add(max);
+         arr2.remove(index2);
+      }    
+      
+     
+            while(i<((arr.size())-1)){//find the min 4 numbers and save them in array 
+          
+          min = arr.get(i);
+           index =0;
+          for(j=1; j<arr.size(); j++){
+              if(arr.get(j) <min){
+                   min = arr.get(j) ;
+                   index = j;
+              }
+          }
+         MinArr.add(min);
+         arr.remove(index);
+      }
+      
+      
+
+      for(int z =0; z< 4; z++){// add the array values to get the max and min sum 
+           MaxSum  =MaxSum+MaxArr.get(z) ;
+           MinSum  =MinSum+MinArr.get(z) ;
+      }
+            System.out.print(MinSum);
+            System.out.print(" ");
+            System.out.print(MaxSum);
+            
+
+
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        String[] arrTemp = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        List<Integer> arr = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            int arrItem = Integer.parseInt(arrTemp[i]);
+            arr.add(arrItem);
+        }
+
+        Result.miniMaxSum(arr);
+
+        bufferedReader.close();
+    }
+}
